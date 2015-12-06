@@ -1,0 +1,36 @@
+<?php
+
+/*
+ * 
+ * 
+ */
+
+function firstmodule_menu() {
+    $items = array();
+    $items['first_form1'] = array(
+      'title' => 'Student data',
+      'page callback' => 'drupal_get_form',
+      'page callback' => array('student_info_form'),
+      'access callback' => TRUE,
+    );
+    return $items;
+}
+
+function student_info_form($form, &$form_state) {
+    $form = array();
+    $form['Fname'] = array(
+      '#title' => 'First Name',
+      '#type' => 'textfield',
+      '#required' => TRUE,
+    );
+    $form['Lname'] = array(
+      '#title' => 'Last Name',
+      '#type' => 'textfield',
+      '#required' => TRUE,
+    );
+    $form['submit'] = array(
+      '#title' => 'Submit',
+      '#type' => 'submit',
+    );
+    return $form;
+}
